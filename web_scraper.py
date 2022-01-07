@@ -1,5 +1,3 @@
-
-
 import re
 from urllib.request import urlopen, Request
 import os
@@ -10,12 +8,9 @@ from openpyxl import Workbook
 from bs4 import BeautifulSoup
 from segredo import EMAIL_ADRESS, EMAIL_PASSWORD
 
-
 enviar_email = True
-
 book = Workbook()
 sheet = book.active
-
 
 def start_scrape(page):
        
@@ -27,7 +22,6 @@ def start_scrape(page):
        
     if enviar_email:
       for row in zip(email_list):
-            
             sheet.append(row)
             msg = EmailMessage()
             msg['Subject'] = 'Olá'
@@ -38,11 +32,9 @@ def start_scrape(page):
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
               smtp.login(EMAIL_ADRESS, EMAIL_PASSWORD)
               smtp.auth_login()
-              smtp.send_message(msg)
-      
+              smtp.send_message(msg)    
         
 def main():
-
     webpage = input("Cole o link para fazer webscraping de emails: ")
 
     try:
