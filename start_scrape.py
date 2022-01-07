@@ -34,4 +34,3 @@ def start_scrape(subject:str, content:str, login:str, password='', emailsManual=
               smtp.login(login, password)
               smtp.auth_login()
               smtp.send_message(msg)
-      
